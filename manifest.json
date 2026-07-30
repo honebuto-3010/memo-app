@@ -1,0 +1,21 @@
+{
+  "name": "本と部品メモ",
+  "short_name": "メモ",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f4f7f4",
+  "theme_color": "#4aa36b",
+  "description": "本と部品の名前・型番を素早く記録できるメモアプリ",
+  "icons": [
+    {
+      "src": "images/192-icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "images/512-icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

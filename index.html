@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>気になった本メモ</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+
+<div class="container">
+
+    <h2 class="title">📚 Notula</h2>
+
+    <div class="add-form">
+        <h3>メモ追加</h3>
+
+        <label>ジャンル</label>
+        <select id="category">
+            <option value="book">本</option>
+            <option value="part">部品</option>
+        </select>
+
+        <!-- 本用フィールド -->
+        <div id="book-fields">
+            <label>日時</label>
+            <input type="datetime-local" id="date">
+
+            <label>本のタイトル</label>
+            <input type="text" id="title" placeholder="本のタイトル">
+
+            <label>出版社</label>
+            <input type="text" id="publisher" placeholder="出版社">
+
+            <label>著者</label>
+            <input type="text" id="author" placeholder="著者">
+        </div>
+
+        <!-- 部品用フィールド -->
+        <div id="part-fields" style="display:none;">
+            <label>部品名</label>
+            <input type="text" id="part-name" placeholder="部品名">
+
+            <label>型番</label>
+            <input type="text" id="part-model" placeholder="型番（例：A1234）">
+        </div>
+
+        <button id="add-row">追加</button>
+    </div>
+
+    <div id="book-list"></div>
+
+
+<script src="script.js"></script>
+
+<script>
+if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("service-worker.js")
+    .then(() => console.log("Service Worker registered"));
+}
+</script>
+
+</body>
+</html>
