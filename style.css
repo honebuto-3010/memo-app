@@ -115,6 +115,23 @@ body {
     font-size: 0.95rem;
 }
 
+#book-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* ← 項目の間隔が均等になる */
+}
+
+#book-fields label {
+  font-weight: bold;
+  margin-bottom: 4px; /* ラベルと入力欄の距離 */
+}
+
+#book-fields input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
 /* ===========================
    削除ボタン
 =========================== */
