@@ -90,6 +90,41 @@ body {
     box-shadow: 0 8px 18px rgba(0,0,0,0.18);
 }
 
+#reset-form {
+    width: 100%;
+    padding: 14px 0;
+    border-radius: 12px;
+    border: none;
+    background: #e5e5ea; /* Apple風の薄いグレー */
+    color: #1d1d1f;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+    transition: 0.2s ease;
+    margin-top: 10px; /* 追加ボタンとの余白 */
+}
+.apple-button {
+    width: 100%;
+    padding: 14px 0;
+    border-radius: 12px;
+    border: none;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+    transition: 0.2s ease;
+    margin-top: 10px;
+}
+#add-row.apple-button {
+    background: #4aa36b;
+    color: #fff;
+}
+#reset-form.apple-button {
+    background: #e5e5ea;
+    color: #1d1d1f;
+}
+
 /* ===========================
    カードUI（一覧）
 =========================== */
@@ -118,18 +153,26 @@ body {
 #book-fields {
   display: flex;
   flex-direction: column;
-  gap: 16px; /* ← 項目の間隔が均等になる */
+  gap: 16px; /* ← 各項目の間隔が均等になる */
 }
 
-#book-fields label {
+#book-fields label,
+#part-fields label {
   font-weight: bold;
-  margin-bottom: 4px; /* ラベルと入力欄の距離 */
+  display: block;
+  margin-top: 12px;
 }
 
-#book-fields input {
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
+#book-fields input,
+#part-fields input {
+  height: 44px;
+  padding: 10px 12px;
+  border: 1px solid #d1d1d6;
+  border-radius: 10px;
+  font-size: 16px;
+  box-sizing: border-box;
+  width: 100%;
+  background: #f9f9f9;
 }
 
 /* ===========================
@@ -150,3 +193,52 @@ body {
 .delete-btn:hover {
     transform: translateY(-3px);
 }
+
+/* Apple風セレクトボックスの共通ラッパー */
+.apple-select-wrapper {
+    position: relative;
+    width: 260px; /* スマホで押しやすい幅 */
+    margin: 10px 0;
+}
+
+/* Apple風セレクト本体 */
+.apple-select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 16px;
+    font-weight: 500;
+
+    border-radius: 12px;
+    border: 1px solid #d1d1d6; /* Appleの薄いグレー */
+    background: #f9f9f9;
+
+    color: #1d1d1f;
+    outline: none;
+
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    transition: all 0.2s ease;
+}
+
+/* フォーカス時の iOSブルー */
+.apple-select:focus {
+    border-color: #007aff;
+    box-shadow: 0 0 0 3px rgba(0,122,255,0.25);
+}
+
+/* ▼アイコン（Apple風） */
+.apple-select-wrapper::after {
+    content: "▼";
+    font-size: 12px;
+    color: #8e8e93;
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+
