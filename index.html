@@ -17,11 +17,18 @@
         <h3>メモ追加</h3>
 
         <label>ジャンル</label>
-        <select id="category">
+        <div class="apple-select-wrapper">
+        <select id="category" class="apple-select">
             <option value="book">本</option>
             <option value="part">部品</option>
         </select>
-
+        </div>    
+        <label >サブカテゴリ</label>
+        <div class="apple-select-wrapper">
+            <select id="subcategory" class="apple-select">
+            <option value="">選択してください</option>
+        </select>
+        </div
         <!-- 本用フィールド -->
         <div id="book-fields">
             <label>日時</label>
@@ -46,7 +53,8 @@
             <input type="text" id="part-model" placeholder="型番（例：A1234）">
         </div>
 
-        <button id="add-row">追加</button>
+       　<button id="add-row" class="apple-button">追加</button>
+        　<button id="reset-form" class="apple-button">リセット</button>
     </div>
 
     <div id="book-list"></div>
