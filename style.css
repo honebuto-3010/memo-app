@@ -1,244 +1,123 @@
 @charset "utf-8";
 
-/* ===========================
-   全体（方眼ノート背景）
-=========================== */
+/* ============================
+   1. Body 全体の Apple風背景
+   ============================ */
 body {
-    font-family: "Hiragino Sans", "Yu Gothic", sans-serif;
-    background: #f4f7f4;
     margin: 0;
-    padding: 20px;
-    color: #333;
-
-    /* グリーン系の方眼ノート背景 */
-    background-image:
-        linear-gradient(to right, rgba(80, 150, 110, 0.15) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(80, 150, 110, 0.15) 1px, transparent 1px);
-    background-size: 28px 28px;
-}
-
-.container {
-    max-width: 520px;
-    margin: auto;
-}
-
-/* ===========================
-   タイトル
-=========================== */
-.title {
-    text-align: center;
-    font-size: 1.8rem;
-    margin-bottom: 20px;
-    color: #2f6f4e;
-    letter-spacing: 0.05em;
-}
-
-/* ===========================
-   入力フォーム
-=========================== */
-.add-form {
-    background: #ffffffcc;
-    padding: 18px;
-    border-radius: 14px;
-    box-shadow: 0 6px 14px rgba(0,0,0,0.08);
-    display: grid;
-    gap: 12px;
-    margin-bottom: 20px;
-
-    /* 内側にも淡い方眼を追加（ノート感UP） */
-    background-image:
-        linear-gradient(to right, rgba(80, 150, 110, 0.1) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(80, 150, 110, 0.1) 1px, transparent 1px);
-    background-size: 26px 26px;
-}
-
-.add-form h3 {
-    margin: 0 0 10px;
-    color: #2f6f4e;
-}
-
-.add-form label {
-    font-size: 0.95rem;
-    color: #3a3a3a;
-}
-
-.add-form input,
-.add-form select,
-.add-form textarea {
-    padding: 12px;
-    font-size: 16px;
-    border: 1px solid #cdd8cd;
-    border-radius: 8px;
-    background: #f9fbf9;
-}
-
-/* 追加ボタン */
-.add-form button {
-    padding: 14px;
-    font-size: 16px;
-    background: #4aa36b;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    letter-spacing: 0.05em;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.12);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.add-form button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 18px rgba(0,0,0,0.18);
-}
-
-#reset-form {
-    width: 100%;
-    padding: 14px 0;
-    border-radius: 12px;
-    border: none;
-    background: #e5e5ea; /* Apple風の薄いグレー */
-    color: #1d1d1f;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.15);
-    transition: 0.2s ease;
-    margin-top: 10px; /* 追加ボタンとの余白 */
-}
-.apple-button {
-    width: 100%;
-    padding: 14px 0;
-    border-radius: 12px;
-    border: none;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.15);
-    transition: 0.2s ease;
-    margin-top: 10px;
-}
-#add-row.apple-button {
-    background: #4aa36b;
-    color: #fff;
-}
-#reset-form.apple-button {
-    background: #e5e5ea;
-    color: #1d1d1f;
-}
-
-/* ===========================
-   カードUI（一覧）
-=========================== */
-.book-card {
-    background: #ffffffee;
-    padding: 18px;
-    margin-top: 18px;
-    border-radius: 14px;
-    box-shadow: 0 6px 14px rgba(0,0,0,0.08);
-
-    /* 左側にグリーンライン（アート系アクセント） */
-    border-left: 6px solid #4aa36b;
-
-    /* カードにも淡い方眼を追加 */
-    background-image:
-        linear-gradient(to right, rgba(80, 150, 110, 0.08) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(80, 150, 110, 0.08) 1px, transparent 1px);
-    background-size: 24px 24px;
-}
-
-.book-card p {
-    margin: 6px 0;
-    font-size: 0.95rem;
-}
-
-#book-fields {
-  display: flex;
-  flex-direction: column;
-  gap: 16px; /* ← 各項目の間隔が均等になる */
-}
-
-#book-fields label,
-#part-fields label {
-  font-weight: bold;
-  display: block;
-  margin-top: 12px;
-}
-
-#book-fields input,
-#part-fields input {
-  height: 44px;
-  padding: 10px 12px;
-  border: 1px solid #d1d1d6;
-  border-radius: 10px;
-  font-size: 16px;
-  box-sizing: border-box;
-  width: 100%;
-  background: #f9f9f9;
-}
-
-/* ===========================
-   削除ボタン
-=========================== */
-.delete-btn {
-    margin-top: 12px;
-    background: #e85a5a;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 8px;
-    font-size: 0.9rem;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.12);
-    transition: transform 0.2s ease;
-}
-
-.delete-btn:hover {
-    transform: translateY(-3px);
-}
-
-/* Apple風セレクトボックスの共通ラッパー */
-.apple-select-wrapper {
+    min-height: 100vh;
     position: relative;
-    width: 260px; /* スマホで押しやすい幅 */
-    margin: 10px 0;
+    overflow: hidden;
+
+    background: linear-gradient(
+        135deg,
+        rgba(180, 255, 210, 0.7),
+        rgba(140, 240, 190, 0.6)
+    );
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
-/* Apple風セレクト本体 */
-.apple-select {
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
 
-    width: 100%;
-    padding: 12px 16px;
-    font-size: 16px;
-    font-weight: 500;
-
-    border-radius: 12px;
-    border: 1px solid #d1d1d6; /* Appleの薄いグレー */
-    background: #f9f9f9;
-
-    color: #1d1d1f;
-    outline: none;
-
-    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-    transition: all 0.2s ease;
-}
-
-/* フォーカス時の iOSブルー */
-.apple-select:focus {
-    border-color: #007aff;
-    box-shadow: 0 0 0 3px rgba(0,122,255,0.25);
-}
-
-/* ▼アイコン（Apple風） */
-.apple-select-wrapper::after {
-    content: "▼";
-    font-size: 12px;
-    color: #8e8e93;
-    position: absolute;
-    right: 14px;
-    top: 50%;
-    transform: translateY(-50%);
+/* ============================
+   2. 背景バブル（均等配置・静止）
+   ============================ */
+.bg-bubble {
+    position: fixed;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle at 30% 30%,
+        rgba(255, 255, 255, 1.0),      /* 白のハイライト */
+        rgba(140, 255, 200, 0.65),     /* ミントをさらに濃く */
+        rgba(80, 200, 130, 0.65)       /* 深緑ミント（緑寄りの主役） */
+    );
+    opacity: 0.95;                     /* 存在感アップ */
     pointer-events: none;
+    z-index: -1;
+}
+
+
+
+/* 均等配置（大・中・小） */
+.b1 { width: 180px; height: 180px; top: 5%; left: 8%; }
+.b2 { width: 140px; height: 140px; top: 20%; right: 10%; }
+.b3 { width: 100px; height: 100px; top: 45%; left: 15%; }
+.b4 { width: 160px; height: 160px; top: 60%; right: 12%; }
+.b5 { width: 120px; height: 120px; bottom: 15%; left: 25%; }
+.b6 { width: 90px;  height: 90px;  bottom: 25%; right: 20%; }
+.b7 { width: 200px; height: 200px; bottom: -40px; right: -20px; }
+
+
+/* ============================
+   3. Notura ロゴ（バブルなし）
+   ============================ */
+.notura-logo {
+    padding: 26px 38px;
+    border-radius: 22px;
+
+    background: linear-gradient(
+        135deg,
+        rgba(180, 255, 210, 0.55),
+        rgba(140, 240, 190, 0.45)
+    );
+
+    color: #003b1f;
+    font-weight: 700;
+    font-size: 1.9em;
+    letter-spacing: 0.04em;
+
+    backdrop-filter: saturate(180%) blur(10px);
+    -webkit-backdrop-filter: saturate(180%) blur(10px);
+}
+
+
+/* ============================
+   4. タグライン
+   ============================ */
+.notura-tagline {
+    margin-top: 14px;
+    font-size: 0.95em;
+    color: #004428;
+    letter-spacing: 0.03em;
+    text-align: center;
+    opacity: 0.85;
+}
+
+
+/* ============================
+   5. Enter ボタン
+   ============================ */
+.enter-button {
+    margin-top: 24px;
+    padding: 14px 32px;
+    font-size: 1.1em;
+    font-weight: 600;
+    color: #003b1f;
+
+    background: linear-gradient(
+        135deg,
+        rgba(180, 255, 210, 0.55),
+        rgba(140, 240, 190, 0.45)
+    );
+
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+
+    backdrop-filter: saturate(180%) blur(10px);
+    -webkit-backdrop-filter: saturate(180%) blur(10px);
+
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.enter-button:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
 }
 
 
