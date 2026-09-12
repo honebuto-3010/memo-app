@@ -9,58 +9,24 @@
 </head>
 <body>
 
-<div class="container">
+    <!-- 背景バブル（均等配置） -->
+    <div class="bg-bubble b1"></div>
+    <div class="bg-bubble b2"></div>
+    <div class="bg-bubble b3"></div>
+    <div class="bg-bubble b4"></div>
+    <div class="bg-bubble b5"></div>
+    <div class="bg-bubble b6"></div>
+    <div class="bg-bubble b7"></div>
 
-    <h2 class="title">📚 Notula</h2>
+    <h2 class="notura-logo">📚 Notura</h2>
 
-    <div class="add-form">
-        <h3>メモ追加</h3>
+    <p class="notura-tagline">
+        Your quiet place for notes, ideas, and everyday clarity.<br>&copy Notula -since 2026
+    </p>
 
-        <label>ジャンル</label>
-        <div class="apple-select-wrapper">
-        <select id="category" class="apple-select">
-            <option value="book">本</option>
-            <option value="part">部品</option>
-        </select>
-        </div>    
-        <label >サブカテゴリ</label>
-        <div class="apple-select-wrapper">
-            <select id="subcategory" class="apple-select">
-            <option value="">選択してください</option>
-        </select>
-        </div
-        <!-- 本用フィールド -->
-        <div id="book-fields">
-            <label>日時</label>
-            <input type="datetime-local" id="date">
+    <button id="enterBtn" class="enter-button">Enter</button>
 
-            <label>本のタイトル</label>
-            <input type="text" id="title" placeholder="本のタイトル">
-
-            <label>出版社</label>
-            <input type="text" id="publisher" placeholder="出版社">
-
-            <label>著者</label>
-            <input type="text" id="author" placeholder="著者">
-        </div>
-
-        <!-- 部品用フィールド -->
-        <div id="part-fields" style="display:none;">
-            <label>部品名</label>
-            <input type="text" id="part-name" placeholder="部品名">
-
-            <label>型番</label>
-            <input type="text" id="part-model" placeholder="型番（例：A1234）">
-        </div>
-
-       　<button id="add-row" class="apple-button">追加</button>
-        　<button id="reset-form" class="apple-button">リセット</button>
-    </div>
-
-    <div id="book-list"></div>
-
-
-<script src="script.js"></script>
+<script src="index.js"></script>
 
 <script>
 if ("serviceWorker" in navigator) {
@@ -71,3 +37,4 @@ if ("serviceWorker" in navigator) {
 
 </body>
 </html>
+
