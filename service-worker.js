@@ -2,7 +2,9 @@ const CACHE_NAME = "memo-app-cache-v1";
 const urlsToCache = [
   "./",
   "./index.html",
+  "./main.html",
   "./style.css",
+  "./main.css",
   "./script.js",
   "./manifest.json",
   "./images/192-icon.png",
@@ -48,3 +50,4 @@ self.addEventListener("fetch", event => {
     })
   );
 });
+
