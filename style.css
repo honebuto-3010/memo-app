@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 /* ============================
-   1. Body 全体の Apple風背景
+   1. Body：深い緑の静けさ
    ============================ */
 body {
     margin: 0;
@@ -11,13 +11,12 @@ body {
 
     background: linear-gradient(
         135deg,
-        rgba(180, 255, 210, 0.7),
-        rgba(140, 240, 190, 0.6)
+        #e1e7e0,   /* 少し濃い緑 */
+        #d6ded5    /* 深緑 */
     );
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
 
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -25,83 +24,157 @@ body {
 
 
 /* ============================
-   2. 背景バブル（均等配置・静止）
+   2. シャボン玉（緑のまま）
    ============================ */
+@keyframes bubble-rise {
+    0% { transform: translateY(80px) scale(0.7); opacity: 0; }
+    20% { opacity: 0.9; }
+    100% { transform: translateY(-120px) scale(1.1); opacity: 0; }
+}
+
 .bg-bubble {
+    display: none;
     position: fixed;
     border-radius: 50%;
+    border: 1px solid #0eaf03;
     background: radial-gradient(
         circle at 30% 30%,
-        rgba(255, 255, 255, 1.0),      /* 白のハイライト */
-        rgba(140, 255, 200, 0.65),     /* ミントをさらに濃く */
-        rgba(80, 200, 130, 0.65)       /* 深緑ミント（緑寄りの主役） */
+        #007a45,
+        #0eaf03,
+        #0eaf03
     );
-    opacity: 0.95;                     /* 存在感アップ */
+    opacity: 0.9;
     pointer-events: none;
     z-index: -1;
+    animation: bubble-rise 10s ease-in-out infinite;
+}
+
+.b1 { width: 180px; height: 180px; left: 8%;  bottom: -60px; animation-duration: 9s; }
+.b2 { width: 140px; height: 140px; left: 30%; bottom: -80px; animation-duration: 11s; }
+.b3 { width: 100px; height: 100px; left: 55%; bottom: -70px; animation-duration: 8s; }
+.b4 { width: 160px; height: 160px; left: 70%; bottom: -90px; animation-duration: 13s; }
+.b5 { width: 120px; height: 120px; left: 85%; bottom: -65px; animation-duration: 10s; }
+.b6 { width: 90px;  height: 90px;  left: 40%; bottom: -100px; animation-duration: 12s; }
+.b7 { width: 200px; height: 200px; left: 15%; bottom: -110px; animation-duration: 14s; }
+
+/* ============================
+   右側の円：大（黄金比の「大」）
+   ============================ */
+.right-circle {
+    position: fixed;
+    top: -140px;
+    right: -370px;
+    width: 720px;
+    height: 720px;
+    border-radius: 50%;
+    z-index: -1;
+
+    background: #0eaf03;
+    border: 2px solid rgba(16, 11, 1, 0.35);
+    opacity: 0.85;
+    box-shadow: 0 0 80px rgba(0, 0, 0, 0.30);
 }
 
 
+/* ============================
+   上部の円：小（黄金比の「小」）
+   ============================ */
+.top-circle {
+    position: fixed;
+    top: -260px;               /* ← 黄金比のズレ */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 480px;              /* ← 黄金比の小 */
+    height: 480px;
+    border-radius: 50%;
+    z-index: -1;
 
-/* 均等配置（大・中・小） */
-.b1 { width: 180px; height: 180px; top: 5%; left: 8%; }
-.b2 { width: 140px; height: 140px; top: 20%; right: 10%; }
-.b3 { width: 100px; height: 100px; top: 45%; left: 15%; }
-.b4 { width: 160px; height: 160px; top: 60%; right: 12%; }
-.b5 { width: 120px; height: 120px; bottom: 15%; left: 25%; }
-.b6 { width: 90px;  height: 90px;  bottom: 25%; right: 20%; }
-.b7 { width: 200px; height: 200px; bottom: -40px; right: -20px; }
+    background: #0eaf03;
+    border: 2px solid rgba(16, 11, 1, 0.30);
+    opacity: 0.50;             /* ← 最奥なので薄め */
+    box-shadow: 0 0 90px rgba(0, 0, 0, 0.30);
+}
 
 
 /* ============================
-   3. Notura ロゴ（バブルなし）
+   左側の円：小中間（黄金比の「中」寄り）
+   ============================ */
+.left-circle {
+    position: fixed;
+    top: -120px;               /* ← 少し上げて非対称性UP */
+    left: -300px;
+    width: 580px;              /* ← 黄金比の中間 */
+    height: 580px;             /* ← 縦横比を揃えると美しい */
+    border-radius: 50%;
+    z-index: -1;
+
+    background: #0eaf03;
+    border: 2px solid rgba(16, 11, 1, 0.30);
+    opacity: 0.65;             /* ← 中間レイヤー */
+    box-shadow: 0 0 60px rgba(0, 0, 0, 0.25);
+}
+
+
+/* ============================
+   下部の円：中（黄金比の「中」）
+   ============================ */
+.bottom-circle {
+    position: fixed;
+    bottom: -260px;            /* ← 上との対称を黄金比に寄せる */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 680px;              /* ← 黄金比の中 */
+    height: 680px;
+    border-radius: 50%;
+    z-index: -1;
+
+    background: #0eaf03;
+    border: 2px solid rgba(16, 11, 1, 0.30);
+    opacity: 0.55;             /* ← 影としての役割 */
+    box-shadow: 0 0 100px rgba(0, 0, 0, 0.30);
+}
+
+
+/* ============================
+   3. ロゴ：ほぼ白ミント（緑にもブラウンにも合う）
    ============================ */
 .notura-logo {
-    padding: 26px 38px;
-    border-radius: 22px;
-
-    background: linear-gradient(
-        135deg,
-        rgba(180, 255, 210, 0.55),
-        rgba(140, 240, 190, 0.45)
-    );
-
-    color: #003b1f;
-    font-weight: 700;
-    font-size: 1.9em;
-    letter-spacing: 0.04em;
-
-    backdrop-filter: saturate(180%) blur(10px);
-    -webkit-backdrop-filter: saturate(180%) blur(10px);
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", sans-serif;
+    font-weight: 600;
+    font-size: 2.2em;
+    letter-spacing: -0.5px;
+    color: #F0FFF7;   /* 緑背景 × ブラウン円に最適 */
+    margin-top: 60px;
+    text-align: center;
 }
 
 
 /* ============================
-   4. タグライン
+   4. タグライン：紙色（緑 × ブラウンの中間）
    ============================ */
 .notura-tagline {
     margin-top: 14px;
     font-size: 0.95em;
-    color: #004428;
+    color: #f0fff7;   /* ライトベージュ（紙色） */
     letter-spacing: 0.03em;
     text-align: center;
-    opacity: 0.85;
+    opacity: 1.0;
 }
 
 
 /* ============================
-   5. Enter ボタン
+   5. Enter ボタン：ミント（視認性と清潔感）
    ============================ */
 .enter-button {
-    margin-top: 24px;
+    margin-top: 220px; 
     padding: 14px 32px;
     font-size: 1.1em;
     font-weight: 600;
-    color: #003b1f;
+    color: #f0fff7;
 
     background: linear-gradient(
         135deg,
-        rgba(180, 255, 210, 0.55),
+        rgba(27, 84, 17, 0.55),
         rgba(140, 240, 190, 0.45)
     );
 
@@ -118,6 +191,17 @@ body {
 .enter-button:hover {
     transform: translateY(-2px);
     opacity: 0.9;
+}
+
+
+/* ============================
+   6. Footer：紙色 × ブラウン
+   ============================ */
+.app-footer {
+    margin-top: auto;
+    text-align: center;
+    padding: 20px 0;
+    color: #ffffff;
 }
 
 
