@@ -1,20 +1,20 @@
 @charset "utf-8";
 
+html, body {
+    overflow: hidden;
+    height: 100%;
+}
+
 /* ============================
-   1. Body：深い緑の静けさ
-   ============================ */
+   1. Body：Apple白背景
+=========================== */
 body {
     margin: 0;
     min-height: 100vh;
     position: relative;
     overflow: hidden;
 
-    background: linear-gradient(
-        135deg,
-        #e1e7e0,   /* 少し濃い緑 */
-        #d6ded5    /* 深緑 */
-    );
-
+    background: #ffffff; /* ← Apple白 */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -24,17 +24,10 @@ body {
 
 
 /* ============================
-   2. シャボン玉（緑のまま）
-   ============================ */
-@keyframes bubble-rise {
-    0% { transform: translateY(80px) scale(0.7); opacity: 0; }
-    20% { opacity: 0.9; }
-    100% { transform: translateY(-120px) scale(1.1); opacity: 0; }
-}
-
+   2. バブル背景：左下に集約
+=========================== */
 .bg-bubble {
-    display: none;
-    position: fixed;
+    position: absolute;
     border-radius: 50%;
     border: 1px solid #0eaf03;
     background: radial-gradient(
@@ -46,145 +39,53 @@ body {
     opacity: 0.9;
     pointer-events: none;
     z-index: -1;
-    animation: bubble-rise 10s ease-in-out infinite;
 }
 
-.b1 { width: 180px; height: 180px; left: 8%;  bottom: -60px; animation-duration: 9s; }
-.b2 { width: 140px; height: 140px; left: 30%; bottom: -80px; animation-duration: 11s; }
-.b3 { width: 100px; height: 100px; left: 55%; bottom: -70px; animation-duration: 8s; }
-.b4 { width: 160px; height: 160px; left: 70%; bottom: -90px; animation-duration: 13s; }
-.b5 { width: 120px; height: 120px; left: 85%; bottom: -65px; animation-duration: 10s; }
-.b6 { width: 90px;  height: 90px;  left: 40%; bottom: -100px; animation-duration: 12s; }
-.b7 { width: 200px; height: 200px; left: 15%; bottom: -110px; animation-duration: 14s; }
+/* 左下に集約（位置を再定義） */
+.b1 { width: 180px; height: 180px; left: -10%; bottom: 5%; }
+.b2 { width: 140px; height: 140px; left: 5%;  bottom: 12%; }
+.b3 { width: 100px; height: 100px; left: -2%; bottom: 22%; }
+.b4 { width: 160px; height: 160px; left: 12%; bottom: 5%; }
+.b5 { width: 120px; height: 120px; left: 18%; bottom: 18%; }
+.b6 { width: 90px;  height: 90px;  left: -10%; bottom: 30%; }
+.b7 { width: 200px; height: 200px; left: -12%; bottom: -5%; }
 
-/* ============================
-   右側の円：大（黄金比の「大」）
-   ============================ */
-.right-circle {
-    position: fixed;
-    top: -140px;
-    right: -370px;
-    width: 720px;
-    height: 720px;
-    border-radius: 50%;
-    z-index: -1;
-
-    background: #0eaf03;
-    border: 2px solid rgba(16, 11, 1, 0.35);
-    opacity: 0.85;
-    box-shadow: 0 0 80px rgba(0, 0, 0, 0.30);
-}
-
-
-/* ============================
-   上部の円：小（黄金比の「小」）
-   ============================ */
-.top-circle {
-    position: fixed;
-    top: -260px;               /* ← 黄金比のズレ */
-    left: 50%;
-    transform: translateX(-50%);
-    width: 480px;              /* ← 黄金比の小 */
-    height: 480px;
-    border-radius: 50%;
-    z-index: -1;
-
-    background: #0eaf03;
-    border: 2px solid rgba(16, 11, 1, 0.30);
-    opacity: 0.50;             /* ← 最奥なので薄め */
-    box-shadow: 0 0 90px rgba(0, 0, 0, 0.30);
-}
-
-
-/* ============================
-   左側の円：小中間（黄金比の「中」寄り）
-   ============================ */
-.left-circle {
-    position: fixed;
-    top: -120px;               /* ← 少し上げて非対称性UP */
-    left: -300px;
-    width: 580px;              /* ← 黄金比の中間 */
-    height: 580px;             /* ← 縦横比を揃えると美しい */
-    border-radius: 50%;
-    z-index: -1;
-
-    background: #0eaf03;
-    border: 2px solid rgba(16, 11, 1, 0.30);
-    opacity: 0.65;             /* ← 中間レイヤー */
-    box-shadow: 0 0 60px rgba(0, 0, 0, 0.25);
-}
-
-
-/* ============================
-   下部の円：中（黄金比の「中」）
-   ============================ */
+/* 円背景は非表示 */
+.top-circle,
+.left-circle,
+.right-circle,
 .bottom-circle {
-    position: fixed;
-    bottom: -260px;            /* ← 上との対称を黄金比に寄せる */
-    left: 50%;
-    transform: translateX(-50%);
-    width: 680px;              /* ← 黄金比の中 */
-    height: 680px;
-    border-radius: 50%;
-    z-index: -1;
+    display: none;
+}
 
-    background: #0eaf03;
-    border: 2px solid rgba(16, 11, 1, 0.30);
-    opacity: 0.55;             /* ← 影としての役割 */
-    box-shadow: 0 0 100px rgba(0, 0, 0, 0.30);
+.center-wrapper {
+    position: absolute;
+    top: 45%;
+    left: 75%;
+    transform: translate(-48%, -50%); /* ← 完全中央 */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* ロゴとボタンを中央揃え */
 }
 
 
-/* ============================
-   3. ロゴ：ほぼ白ミント（緑にもブラウンにも合う）
-   ============================ */
 .notura-logo {
-    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display";
     font-weight: 600;
-    font-size: 2.2em;
-    letter-spacing: -0.5px;
-    color: #F0FFF7;   /* 緑背景 × ブラウン円に最適 */
-    margin-top: 60px;
-    text-align: center;
+    font-size: 2.4em;
+    color: #0eaf03;
+    margin-bottom: 20px;
 }
 
-
-/* ============================
-   4. タグライン：紙色（緑 × ブラウンの中間）
-   ============================ */
-.notura-tagline {
-    margin-top: 14px;
-    font-size: 0.95em;
-    color: #f0fff7;   /* ライトベージュ（紙色） */
-    letter-spacing: 0.03em;
-    text-align: center;
-    opacity: 1.0;
-}
-
-
-/* ============================
-   5. Enter ボタン：ミント（視認性と清潔感）
-   ============================ */
 .enter-button {
-    margin-top: 220px; 
     padding: 14px 32px;
     font-size: 1.1em;
     font-weight: 600;
-    color: #f0fff7;
-
-    background: linear-gradient(
-        135deg,
-        rgba(27, 84, 17, 0.55),
-        rgba(140, 240, 190, 0.45)
-    );
-
+    color: #ffffff;
+    background: #0eaf03;
     border: none;
     border-radius: 14px;
     cursor: pointer;
-
-    backdrop-filter: saturate(180%) blur(10px);
-    -webkit-backdrop-filter: saturate(180%) blur(10px);
-
     transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
@@ -195,13 +96,112 @@ body {
 
 
 /* ============================
-   6. Footer：紙色 × ブラウン
-   ============================ */
+   5. Footer：そのまま維持
+=========================== */
 .app-footer {
     margin-top: auto;
     text-align: center;
     padding: 20px 0;
-    color: #ffffff;
+    color: #0eaf03; /* ← 白背景に合わせて緑に変更 */
+}
+
+.notura-tagline {
+    font-size: 0.95em;
+    letter-spacing: 0.03em;
+    opacity: 1.0;
+}
+
+@media (max-width: 768px) {
+
+    /* ロゴ＋ボタンの中央配置を少し上へ */
+    .center-wrapper {
+        top: 45%;                 /* ← スマホは少し上に */
+        transform: translate(-50%, -45%);
+    }
+
+    /* ロゴサイズ調整 */
+    .notura-logo-text {
+        font-size: 1.8rem;
+    }
+
+    /* ボタンサイズ調整 */
+    .enter-button {
+        padding: 12px 28px;
+        font-size: 1em;
+        margin-top: 18px;
+    }
+
+    /* バブル縮小 */
+    .bg-bubble { opacity: 0.85; }
+    .b1 { width: 140px; height: 140px; }
+    .b2 { width: 110px; height: 110px; }
+    .b3 { width: 80px;  height: 80px; }
+    .b4 { width: 120px; height: 120px; }
+    .b5 { width: 100px; height: 100px; }
+    .b6 { width: 70px;  height: 70px; }
+    .b7 { width: 160px; height: 160px; }
+
+    /* フッター調整 */
+    .notura-tagline {
+        font-size: 0.85em;
+        line-height: 1.4;
+        padding: 0 20px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+
+    .center-wrapper {
+        top: 50%;                 /* ← 縦向きは中央でOK */
+        transform: translate(-50%, -50%);
+    }
+
+    .notura-logo-text {
+        font-size: 2.2rem;
+    }
+
+    .enter-button {
+        padding: 14px 32px;
+        font-size: 1.05em;
+        margin-top: 20px;
+    }
+
+    .b1 { width: 160px; height: 160px; }
+    .b2 { width: 130px; height: 130px; }
+    .b3 { width: 100px; height: 100px; }
+    .b4 { width: 150px; height: 150px; }
+    .b5 { width: 120px; height: 120px; }
+    .b6 { width: 90px;  height: 90px; }
+    .b7 { width: 180px; height: 180px; }
+
+    .app-footer { padding: 30px 0; }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+
+    .center-wrapper {
+        top: 40%;                 /* ← 横向きは少し上へ */
+        transform: translate(-50%, -40%);
+    }
+
+    .notura-logo-text {
+        font-size: 2rem;
+    }
+
+    .enter-button {
+        padding: 14px 32px;
+        font-size: 1.05em;
+        margin-top: 18px;
+    }
+
+    /* バブルは縦が狭いので少し縮小 */
+    .b1 { width: 140px; height: 140px; }
+    .b2 { width: 120px; height: 120px; }
+    .b3 { width: 90px;  height: 90px; }
+    .b4 { width: 130px; height: 130px; }
+    .b5 { width: 110px; height: 110px; }
+    .b6 { width: 80px;  height: 80px; }
+    .b7 { width: 150px; height: 150px; }
 }
 
 
