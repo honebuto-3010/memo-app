@@ -8,8 +8,8 @@ const urlsToCache = [
   "./script.js",
   "./manifest.json",
   "./new-notula-icon3.png",
-  "./192-icon.png",
-  "./512-icon.png"
+  "./notula-192-icon.png",
+  "./notula-512-icon.png"
 ];
 
 // インストール（初回起動時）
