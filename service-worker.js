@@ -7,7 +7,7 @@ const urlsToCache = [
   "./main.css",
   "./script.js",
   "./manifest.json",
-  "./new-notula-icon3.png",
+  "./notula-icon.png",
   "./notula-192-icon.png",
   "./notula-512-icon.png"
 ];
